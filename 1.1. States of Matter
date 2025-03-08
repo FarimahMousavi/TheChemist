@@ -1,0 +1,20 @@
+fixed_shape_st = input("Does your matter have fixed shape (Yes/No)? ")
+fixed_shape_bl = {"true":True, "yes":True, "false":False, "no":False}.get(fixed_shape_st.lower(), None)
+conform_container_st = input("Does your matter conform to the container shape (Yes/No)? ")
+conform_container_bl = {"true":True, "yes":True, "false":False, "no":False}.get(conform_container_st.lower(), None)
+fill_container_st = input("Does your matter fills the entire container (Yes/No)? ")
+fill_container_bl = {"true":True, "yes":True, "false":False, "no":False}.get(fill_container_st.lower(), None)
+
+if fixed_shape_bl == True and conform_container_bl == False and fill_container_bl == False:
+	print("Your matter is Solid")
+
+elif fixed_shape_bl == False and conform_container_bl == True and fill_container_bl == False:
+	print("Your matter is Liquid")
+
+elif fixed_shape_bl == False and conform_container_bl == True and fill_container_bl == True:
+	print("Your matter is Gas")
+	
+else:
+  print("Please recheck your matter's properties!")
+
+

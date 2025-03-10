@@ -1,0 +1,106 @@
+quantity_type_st = input("Which SI quantity have you measured (e.g. Mass, Length, Time, Temperature, Electric current, Luminous intensity)? ")
+quantity_amount = input("What was your measured amount? ")
+
+try:
+	quantity_amount_fl = float(quantity_amount)
+	quantity_amount_st_unformat = str(quantity_amount_fl)
+	quantity_amount_fl_format = format(quantity_amount_fl, ".2e")
+	quantity_unit = "unit"
+	unit_prefix = ""
+
+
+	if 0.000000000000001 <= quantity_amount_fl < 0.000000000001:
+		unit_prefix = "f"
+		quantity_amount_fl = quantity_amount_fl * 1000000000000000
+
+	elif 0.000000000001 <= quantity_amount_fl < 0.000000001:
+		unit_prefix = "p"
+		quantity_amount_fl = quantity_amount_fl * 1000000000000
+
+	elif 0.000000001 <= quantity_amount_fl < 0.000001:
+		unit_prefix = "n"
+		quantity_amount_fl = quantity_amount_fl * 1000000000
+
+	elif 0.000001 <= quantity_amount_fl < 0.001:
+		unit_prefix = "μ"
+		quantity_amount_fl = quantity_amount_fl * 1000000
+
+	elif 0.001 <= quantity_amount_fl < 0.01:
+		unit_prefix = "m"
+		quantity_amount_fl = quantity_amount_fl * 1000
+
+	elif 0.01 <= quantity_amount_fl < 0.1:
+		unit_prefix = "c"
+		quantity_amount_fl = quantity_amount_fl * 100
+
+	elif 0.1 <= quantity_amount_fl < 1:
+		unit_prefix = "d"
+		quantity_amount_fl = quantity_amount_fl * 10
+
+	elif 1 <= quantity_amount_fl < 10:
+		unit_prefix = ""
+		quantity_amount_fl = quantity_amount_fl * 1
+
+	elif 10 <= quantity_amount_fl < 100:
+		unit_prefix = "da"
+		quantity_amount_fl = quantity_amount_fl / 10
+
+	elif 100 <= quantity_amount_fl < 1000:
+		unit_prefix = "h"
+		quantity_amount_fl = quantity_amount_fl / 100
+
+	elif 1000 <= quantity_amount_fl < 1000000:
+		unit_prefix = "k"
+		quantity_amount_fl = quantity_amount_fl / 1000
+
+	elif 1000000 <= quantity_amount_fl < 1000000000:
+		unit_prefix = "M"
+		quantity_amount_fl = quantity_amount_fl / 1000000
+
+	elif 1000000000 <= quantity_amount_fl < 1000000000000:
+		unit_prefix = "G"
+		quantity_amount_fl = quantity_amount_fl / 1000000000
+
+	elif 1000000000000 <= quantity_amount_fl < 1000000000000000:
+		unit_prefix = "T"
+		quantity_amount_fl = quantity_amount_fl / 1000000000000
+
+	else:
+		print("Please recheck your entered amount!")
+
+
+	quantity_amount_st = str(quantity_amount_fl)
+
+	def result():
+		print("Your measured quantity is " + quantity_amount_st + " " + unit_prefix + quantity_unit + " or " + quantity_amount_fl_format + " " + quantity_unit + ".")
+
+
+	if quantity_type_st.lower() == "mass":
+		quantity_unit = "g"
+		result()
+
+	elif quantity_type_st.lower() == "length":
+		quantity_unit = "m"
+		result()
+
+	elif quantity_type_st.lower() == "time":
+		quantity_unit = "s"
+		result()
+
+	elif quantity_type_st.lower() == "temperature":
+		quantity_unit = "K"
+		result()
+
+	elif quantity_type_st.lower() == "electric current":
+		quantity_unit = "A"
+		result()
+
+	elif quantity_type_st.lower() == "luminous intensity":
+		quantity_unit = "cd"
+		result()
+
+	else:
+ 	 print("Please recheck your entered quantity type!")
+
+except: 
+	print("Please recheck your entered amount!")

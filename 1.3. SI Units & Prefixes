@@ -1,12 +1,12 @@
 quantity_type_st = input("Which SI quantity have you measured (e.g. Mass, Length, Time, Temperature, Electric current, Luminous intensity)? ")
 quantity_amount = input("What was your measured amount? ")
+quantity_unit = "unit"
+unit_prefix = ""
 
 try:
 	quantity_amount_fl = float(quantity_amount)
 	quantity_amount_st_unformat = str(quantity_amount_fl)
 	quantity_amount_fl_format = format(quantity_amount_fl, ".2e")
-	quantity_unit = "unit"
-	unit_prefix = ""
 
 
 	if 0.000000000000001 <= quantity_amount_fl < 0.000000000001:

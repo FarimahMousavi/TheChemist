@@ -1,3 +1,4 @@
+#1.1. Write a script to receive basic properties of a matter from the user and guess its state.
 fixed_shape_st = input("Does your matter have fixed shape (Yes/No)? ")
 fixed_shape_bl = {"true":True, "yes":True, "false":False, "no":False}.get(fixed_shape_st.lower(), None)
 conform_container_st = input("Does your matter conform to the container shape (Yes/No)? ")

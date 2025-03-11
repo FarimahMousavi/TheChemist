@@ -1,1 +1,1 @@
-Here, we solve chemistry problems with python!
+Here, we solve chemistry problems using python!

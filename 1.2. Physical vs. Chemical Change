@@ -1,3 +1,4 @@
+#1.2. Write a script to receive the change in substance from the user and guess its type.
 physical_form_st = input("Has the physical form of your substance changed (Yes/No)? ")
 physical_form_bl = {"true":True, "yes":True, "false":False, "no":False}.get(physical_form_st.lower(), None)
 composition_st = input("Has the composition of your substance changed (Yes/No)? ")

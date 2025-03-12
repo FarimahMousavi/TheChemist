@@ -1,4 +1,4 @@
-#1.3. Write a script to receive the type and amount of a measured quantity from the user and print it in scientific notation.1
+#1.3. Write a script to receive the type and amount of a measured quantity from the user and print it in scientific notation.
 quantity_type_st = input("Which SI quantity have you measured (e.g. Mass, Length, Time, Temperature, Electric current, Luminous intensity)? ")
 quantity_type = ["mass","length", "time","temperature", "electric current","luminous intensity"]
 

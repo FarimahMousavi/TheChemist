@@ -1,0 +1,27 @@
+#2.1. Write a script to receive the features of a matter and print its type in case of element, compound, or mixture.
+
+possible_answers = {"yes", "no"}
+
+atom_type = input("Is it consist of only one kind of atom (Yes/No)? ")
+if atom_type.lower() not in possible_answers:
+  print("Please check your answer!")
+else:
+  broken = input("Can it be broken down into a simpler type of matter (Yes/No)? ")
+  if broken.lower() not in possible_answers:
+    print("Please check your answer!")
+  else:
+    mass_variation = input("Does its components can vary in their parts by mass (Yes/No)? ")
+    if mass_variation.lower() not in possible_answers:
+      print("Please check your answer!")
+    else:
+      if atom_type.lower() =="yes" and broken.lower() == "no" and mass_variation.lower() == "no":
+        print("The matter is an element.")
+     
+      elif atom_type.lower() =="no" and broken.lower() == "yes" and mass_variation.lower() == "no":
+         print("The matter is a compound.")
+      
+      elif atom_type.lower() =="no" and broken.lower() == "yes" and mass_variation.lower() == "yes":
+         print("The matter is a mixture.")
+      
+      else:
+        print("Please recheck the features of the matter!")

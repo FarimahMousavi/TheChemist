@@ -1,0 +1,33 @@
+#2.2. For a compound with two types of elements (A, B), write a script to receive the amounts of the sample and one of the elements, and prints the mass fractions and mass percents of both elements.
+
+sample_amount = input("Please type the amount of sample in gram: ")
+
+try:
+  float(sample_amount)
+  A_amount = input("Please type the amount of A element in gram: ")
+  try:
+    float(A_amount)
+    mass_fraction_A_fl = round(float(A_amount) / float(sample_amount),2)
+    mass_fraction_A_st = str(mass_fraction_A_fl)
+    mass_fraction_B_fl = round(1 - mass_fraction_A_fl,2)
+    mass_fraction_B_st = str(mass_fraction_B_fl)
+    mass_percent_A_fl = mass_fraction_A_fl * 100
+    mass_percent_A_st = str(mass_percent_A_fl)
+    mass_percent_B_fl = mass_fraction_B_fl * 100
+    mass_percent_B_st = str(mass_percent_B_fl)
+
+
+    print("\
+    Mass Fraction of A = " + mass_fraction_A_st + "\
+    Mass Fraction of B = " + mass_fraction_B_st + "\
+    Mass Percent of A =  " + mass_percent_A_st + " %\
+    Mass Percent of B =  " + mass_percent_B_st + " %")
+
+  except:
+    print("Please type the correct amount!")
+except:
+  print("Please type the correct amount!")
+
+
+
+

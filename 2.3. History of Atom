@@ -1,0 +1,44 @@
+#2.3. For history of atom, write a game script to ask questions and give final score. 
+
+print ("For the following questions, please respond the letter of a scientist name option: (A) Dalton   (B) Thomson   (C) Rutherford   (D) Bohr   (E) Schrodinger")
+
+question_1 = input("Who did the gold foil experiment, in which shown the atom has a small, strong, nucleus? ") 
+question_2 = input("Who explained the atom's quantum mechanical model? ")
+question_3 = input("Who stated that atoms are invisible and those of a given elements are identical? ")
+question_4 = input("Who suggested that electrons will be traveling around the nucleus in specified orbits, only? ")
+question_5 = input("Who proposed a model of the atom consisiting of posititve and negative charges, present in equal amounts? ")
+
+score_1 = 0
+score_2 = 0
+score_3 = 0
+score_4 = 0
+score_5 = 0
+
+
+if question_1.lower() == "c":
+  score_1 = 20
+else:
+  score_1 = 0
+
+if question_2.lower() == "e":
+  score_2 = 20
+else:
+  score_2 = 0
+
+if question_3.lower() == "a":
+  score_3 = 20
+else:
+  score_3 = 0
+
+if question_4.lower() == "d":
+  score_4 = 20
+else:
+  score_4 = 0
+
+if question_5.lower() == "b":
+  score_5 = 20
+else:
+  score_5 = 0
+
+score = score_1 + score_2 + score_3 + score_4 + score_5
+print("Your score is " + str(score) + "%")

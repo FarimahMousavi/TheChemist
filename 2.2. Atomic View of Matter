@@ -1,4 +1,4 @@
-#2.2. For a compound with two types of elements (A, B), write a script to receive the amounts of the sample and one of the elements, and prints the mass fractions and mass percents of both elements.
+#2.2. For a compound with two types of elements (A, B), write a script to receive the amounts of the sample and one of the elements, and print the mass fractions and mass percents of both elements.
 
 sample_amount = input("Please type the amount of sample in gram: ")
 

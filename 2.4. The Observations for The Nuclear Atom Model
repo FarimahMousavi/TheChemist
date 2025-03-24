@@ -1,0 +1,77 @@
+#2.4.For the nuclear atom model, write a game script to ask questions and give final score.
+print ("For the following questions, please respond the letter of an option: (A) 1+   (B) 0   (C) -1   (D) +1.60218e-19 C   (E) -1.60218e-19 C   (F) Nucleus   (G) Outside Nucleus   (H) 1 amu")
+
+question_1 = input(" 1. Where is the position of electron? ")
+question_2 = input(" 2. What is the relative charge of neutron? ")
+question_3 = input(" 3. What is the relative mass of proton? ")
+question_4 = input(" 4. What is the absolute charge of electron? ")
+question_5 = input(" 5. Where is the position of neutron? ")
+question_6 = input(" 6. What is the absolute charge of proton? ")
+question_7 = input(" 7. What is the relative charge of electron? ")
+question_8 = input(" 8. Where is the position of proton? ")
+question_9 = input(" 9. What is the relative mass of neutron? ")
+question_10 = input("10. What is the relative charge of proton? ")
+
+score_1 = 0
+score_2 = 0
+score_3 = 0
+score_4 = 0
+score_5 = 0
+score_6 = 0
+score_7 = 0
+score_8 = 0
+score_9 = 0
+score_10 = 0
+
+if question_1.lower() == "g":
+  score_1 = 10
+else:
+  score_1 = 0
+
+if question_2.lower() == "b":
+  score_2 = 10
+else:
+  score_2 = 0
+
+if question_3.lower() == "h":
+  score_3 = 10
+else:
+  score_3 = 0
+
+if question_4.lower() == "e":
+  score_4 = 10
+else:
+  score_4 = 0
+
+if question_5.lower() == "f":
+  score_5 = 10
+else:
+  score_5 = 0
+
+if question_6.lower() == "d":
+  score_6 = 10
+else:
+  score_6 = 0
+
+if question_7.lower() == "c":
+  score_7 = 10
+else:
+  score_7 = 0
+
+if question_8.lower() == "f":
+  score_8 = 10
+else:
+  score_8 = 0
+
+if question_9.lower() == "h":
+  score_9 = 10
+else:
+  score_9 = 0
+
+if question_10.lower() == "a":
+  score_10 = 10
+else:
+  score_10 = 0
+
+score = score_1 + score_2 + score_3 + score_4 + score_5 + score_6 + score_7 + score_8 + score_9 + score_10
+print("Your score is " + str(score) + "%")

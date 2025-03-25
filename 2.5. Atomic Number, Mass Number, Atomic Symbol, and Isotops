@@ -1,0 +1,48 @@
+#2.5. Write a script to ask random questions of an isotopic problem and give final score.
+
+import random 
+
+print("Argon has three naturally occurring isotopes, 36Ar, 38Ar, and 40Ar.")
+question_1 = " What is the mass number of 36Ar? "
+question_2 = " What is the mass number of 38Ar? "
+question_3 = " What is the mass number of 40Ar? "
+question_4 = " How many protons are present in 36Ar? "
+question_5 = " How many protons are present in 38Ar? "
+question_6 = " How many protons are present in 40Ar? "
+question_7 = " How many neutrons are present in 36Ar? "
+question_8 = " How many neutrons are present in 38Ar? "
+question_9 = " How many neutrons are present in 40Ar? "
+question_10 = " How many electrons are present in 36Ar? "
+question_11 = " How many electrons are present in 38Ar? "
+question_12 = " How many electrons are present in 40Ar? "
+
+question_list = [question_1, question_2, question_3, question_4, question_5, question_6, question_7, question_8, question_9, question_10,question_11, question_12]
+question_answer_pairs = {question_1: 36, question_2: 38, question_3: 40, question_4: 18, question_5: 18, question_6: 18, question_7: 18, question_8: 20, question_9: 22, question_10: 18,question_11: 18, question_12: 18}
+
+score = 0
+
+i = 0
+
+while i < 5:
+  random_question = random.choice(question_list)
+  answer_st = input(random_question)
+  question_list.remove(random_question)
+
+
+  try:
+    answer_int = int(answer_st)
+
+    if answer_int == question_answer_pairs[random_question]:
+      score += 20
+      print("Correct!")
+    
+    else:
+      score = 0
+      print("Incorrect!")
+
+  except:
+    print("Please type a valid response!")
+
+  i += 1
+
+print("Your score is " + str(score) + "%")

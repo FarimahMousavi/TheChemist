@@ -1,0 +1,162 @@
+#2.6. Write a script to take an element from the user and print its periodic table info.
+
+import random
+
+periodic_table_elements = [
+    (1, "Hydrogen", "H", 1, "Nonmetal"),
+    (2, "Helium", "He", 18, "Nonmetal"),
+    (3, "Lithium", "Li", 1, "Metal"),
+    (4, "Beryllium", "Be", 2, "Metal"),
+    (5, "Boron", "B", 13, "Metalloid"),
+    (6, "Carbon", "C", 14, "Nonmetal"),
+    (7, "Nitrogen", "N", 15, "Nonmetal"),
+    (8, "Oxygen", "O", 16, "Nonmetal"),
+    (9, "Fluorine", "F", 17, "Nonmetal"),
+    (10, "Neon", "Ne", 18, "Nonmetal"),
+    (11, "Sodium", "Na", 1, "Metal"),
+    (12, "Magnesium", "Mg", 2, "Metal"),
+    (13, "Aluminum", "Al", 13, "Metal"),
+    (14, "Silicon", "Si", 14, "Metalloid"),
+    (15, "Phosphorus", "P", 15, "Nonmetal"),
+    (16, "Sulfur", "S", 16, "Nonmetal"),
+    (17, "Chlorine", "Cl", 17, "Nonmetal"),
+    (18, "Argon", "Ar", 18, "Nonmetal"),
+    (19, "Potassium", "K", 1, "Metal"),
+    (20, "Calcium", "Ca", 2, "Metal"),
+    (21, "Scandium", "Sc", 3, "Metal"),
+    (22, "Titanium", "Ti", 4, "Metal"),
+    (23, "Vanadium", "V", 5, "Metal"),
+    (24, "Chromium", "Cr", 6, "Metal"),
+    (25, "Manganese", "Mn", 7, "Metal"),
+    (26, "Iron", "Fe", 8, "Metal"),
+    (27, "Cobalt", "Co", 9, "Metal"),
+    (28, "Nickel", "Ni", 10, "Metal"),
+    (29, "Copper", "Cu", 11, "Metal"),
+    (30, "Zinc", "Zn", 12, "Metal"),
+    (31, "Gallium", "Ga", 13, "Metal"),
+    (32, "Germanium", "Ge", 14, "Metalloid"),
+    (33, "Arsenic", "As", 15, "Metalloid"),
+    (34, "Selenium", "Se", 16, "Nonmetal"),
+    (35, "Bromine", "Br", 17, "Nonmetal"),
+    (36, "Krypton", "Kr", 18, "Nonmetal"),
+    (37, "Rubidium", "Rb", 1, "Metal"),
+    (38, "Strontium", "Sr", 2, "Metal"),
+    (39, "Yttrium", "Y", 3, "Metal"),
+    (40, "Zirconium", "Zr", 4, "Metal"),
+    (41, "Niobium", "Nb", 5, "Metal"),
+    (42, "Molybdenum", "Mo", 6, "Metal"),
+    (43, "Technetium", "Tc", 7, "Metal"),
+    (44, "Ruthenium", "Ru", 8, "Metal"),
+    (45, "Rhodium", "Rh", 9, "Metal"),
+    (46, "Palladium", "Pd", 10, "Metal"),
+    (47, "Silver", "Ag", 11, "Metal"),
+    (48, "Cadmium", "Cd", 12, "Metal"),
+    (49, "Indium", "In", 13, "Metal"),
+    (50, "Tin", "Sn", 14, "Metal"),
+    (51, "Antimony", "Sb", 15, "Metalloid"),
+    (52, "Tellurium", "Te", 16, "Metalloid"),
+    (53, "Iodine", "I", 17, "Nonmetal"),
+    (54, "Xenon", "Xe", 18, "Nonmetal"),
+    (55, "Cesium", "Cs", 1, "Metal"),
+    (56, "Barium", "Ba", 2, "Metal"),
+    (57, "Lanthanum", "La", 3, "Metal"),
+    (58, "Cerium", "Ce", None, "Metal"),
+    (59, "Praseodymium", "Pr", None, "Metal"),
+    (60, "Neodymium", "Nd", None, "Metal"),
+    (61, "Promethium", "Pm", None, "Metal"),
+    (62, "Samarium", "Sm", None, "Metal"),
+    (63, "Europium", "Eu", None, "Metal"),
+    (64, "Gadolinium", "Gd", None, "Metal"),
+    (65, "Terbium", "Tb", None, "Metal"),
+    (66, "Dysprosium", "Dy", None, "Metal"),
+    (67, "Holmium", "Ho", None, "Metal"),
+    (68, "Erbium", "Er", None, "Metal"),
+    (69, "Thulium", "Tm", None, "Metal"),
+    (70, "Ytterbium", "Yb", None, "Metal"),
+    (71, "Lutetium", "Lu", 3, "Metal"),
+    (72, "Hafnium", "Hf", 4, "Metal"),
+    (73, "Tantalum", "Ta", 5, "Metal"),
+    (74, "Tungsten", "W", 6, "Metal"),
+    (75, "Rhenium", "Re", 7, "Metal"),
+    (76, "Osmium", "Os", 8, "Metal"),
+    (77, "Iridium", "Ir", 9, "Metal"),
+    (78, "Platinum", "Pt", 10, "Metal"),
+    (79, "Gold", "Au", 11, "Metal"),
+    (80, "Mercury", "Hg", 12, "Metal"),
+    (81, "Thallium", "Tl", 13, "Metal"),
+    (82, "Lead", "Pb", 14, "Metal"),
+    (83, "Bismuth", "Bi", 15, "Metal"),
+    (84, "Polonium", "Po", 16, "Metalloid"),
+    (85, "Astatine", "At", 17, "Metalloid"),
+    (86, "Radon", "Rn", 18, "Nonmetal"),
+    (87, "Francium", "Fr", 1, "Metal"),
+    (88, "Radium", "Ra", 2, "Metal"),
+    (89, "Actinium", "Ac", 3, "Metal"),
+    (90, "Thorium", "Th", None, "Metal"),
+    (91, "Protactinium", "Pa", None, "Metal"),
+    (92, "Uranium", "U", None, "Metal"),
+    (93, "Neptunium", "Np", None, "Metal"),
+    (94, "Plutonium", "Pu", None, "Metal"),
+    (95, "Americium", "Am", None, "Metal"),
+    (96, "Curium", "Cm", None, "Metal"),
+    (97, "Berkelium", "Bk", None, "Metal"),
+    (98, "Californium", "Cf", None, "Metal"),
+    (99, "Einsteinium", "Es", None, "Metal"),
+    (100, "Fermium", "Fm", None, "Metal"),
+    (101, "Mendelevium", "Md", None, "Metal"),
+    (102, "Nobelium", "No", None, "Metal"),
+    (103, "Lawrencium", "Lr", 3, "Metal"),
+    (104, "Rutherfordium", "Rf", 4, "Metal"),
+    (105, "Dubnium", "Db", 5, "Metal"),
+    (106, "Seaborgium", "Sg", 6, "Metal"),
+    (107, "Bohrium", "Bh", 7, "Metal"),
+    (108, "Hassium", "Hs", 8, "Metal"),
+    (109, "Meitnerium", "Mt", 9, "Metal"),
+    (110, "Darmstadtium", "Ds", 10, "Metal"),
+    (111, "Roentgenium", "Rg", 11, "Metal"),
+    (112, "Copernicium", "Cn", 12, "Metal"),
+    (113, "Nihonium", "Nh", 13, "Metal"),
+    (114, "Flerovium", "Fl", 14, "Metal"),
+    (115, "Moscovium", "Mc", 15, "Metal"),
+    (116, "Livermorium", "Lv", 16, "Metal"),
+    (117, "Tennessine", "Ts", 17, "Metalloid"),
+    (118, "Oganesson", "Og", 18, "Nonmetal"),
+]
+
+
+answer_1 = input("Which type of information do you have from your element, (a) Atomic Number   (b) Name   (c) Symbol? ").strip().lower()
+element_found = False
+
+if answer_1 == "a":
+  try:
+    answer_2 = int(input("Please enter the atomic number of your element: "))
+    for atomic_number, name, symbol, group, classification in periodic_table_elements:
+      if answer_2 == atomic_number:
+        print(f"Element: {name}, Atomic Number: {atomic_number}, Symbol: {symbol}, Group: {group}, Classification: {classification}")
+        element_found = True
+        break
+
+  except ValueError:
+    print("Please type an intiger as atomic number!")
+
+
+elif answer_1 == "b":
+  answer_2 = input("Please enter the name of your element: ").strip().lower()
+  for atomic_number, name, symbol, group, classification in periodic_table_elements:
+      if answer_2 == name.lower():
+        print(f"Element: {name}, Atomic Number: {atomic_number}, Symbol: {symbol}, Group: {group}, Classification: {classification}")
+        element_found = True
+        break
+
+
+elif answer_1 == "c":
+  answer_2 = input("Please enter the symbol of your element: ").strip().lower()
+  for atomic_number, name, symbol, group, classification in periodic_table_elements:
+    if answer_2 == symbol.lower():
+      print(f"Element: {name}, Atomic Number: {atomic_number}, Symbol: {symbol}, Group: {group}, Classification: {classification}")
+      element_found = True
+      break
+
+
+if not element_found:
+  print("Please recheck your entered data!")

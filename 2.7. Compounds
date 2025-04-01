@@ -1,0 +1,53 @@
+#2.7. Write a script to ask users to give a compounds molecular formula and it prints whether its an ionic compound or a covalent compound.
+
+import re
+from mendeleev import element
+
+metals = [
+    "Li", "Na", "K", "Rb", "Cs", "Fr",  # Alkali metals
+    "Be", "Mg", "Ca", "Sr", "Ba", "Ra",  # Alkaline earth metals
+    "Sc", "Y", "La", "Ac",  # Transition metals (Group 3)
+    "Ti", "Zr", "Hf", "Rf",  # Transition metals (Group 4)
+    "V", "Nb", "Ta", "Db",  # Transition metals (Group 5)
+    "Cr", "Mo", "W", "Sg",  # Transition metals (Group 6)
+    "Mn", "Tc", "Re", "Bh",  # Transition metals (Group 7)
+    "Fe", "Ru", "Os", "Hs",  # Transition metals (Group 8)
+    "Co", "Rh", "Ir", "Mt",  # Transition metals (Group 9)
+    "Ni", "Pd", "Pt", "Ds",  # Transition metals (Group 10)
+    "Cu", "Ag", "Au", "Rg",  # Transition metals (Group 11)
+    "Zn", "Cd", "Hg", "Cn",  # Transition metals (Group 12)
+    "Al", "Ga", "In", "Tl", "Nh",  # Post-transition metals (Group 13)
+    "Sn", "Pb", "Fl",  # Post-transition metals (Group 14)
+    "Bi", "Mc",  # Post-transition metals (Group 15)
+    "Po", "Lv",  # Metalloids (can have metallic properties)
+    # Lanthanides
+    "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu",
+    # Actinides
+    "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr"
+]
+
+non_metals= ['H', 'B', 'C', 'N', 'O', 'F', 'Si', 'P', 'S', 'Cl', 'As', 'Se', 'Br', 'Te', 'I', 'At', 'Ts']
+
+
+formula = input("Please enter the chemical formula of the compound: ")
+
+is_ionic = False
+is_covalent = False
+
+for element_symbol in re.findall(r"([A-Z][a-z]*)", formula):
+    if element_symbol in metals:
+        is_ionic = True
+    elif element_symbol in non_metals:
+        is_covalent = True
+    else:
+        print(f"Invalid element symbol: {element_symbol}")
+        break  
+
+if is_ionic and is_covalent:
+    print("The formula is likely for an Ionic Compound.")
+elif is_covalent:
+    print("The formula is likely for a Covalent Compound.")
+elif is_ionic:
+    print("The formula is likely for a Metal.") 
+else:
+    print("Invalid formula. Please enter a chemically valid formula.")

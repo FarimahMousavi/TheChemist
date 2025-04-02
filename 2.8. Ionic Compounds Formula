@@ -1,0 +1,88 @@
+#2.8. Write a python script to take a binary ionic compound components from the user and print its formula.
+
+monoatomic_cation = ["H", "Li", "Na", "K", "Rb", "Cs", "Fr", "Be", "Mg", "Ca", "Sr", "Ba", "Ra", "Al", "Ga", "In", "Tl", "Sn", "Pb", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ag", "Cd", "Hg", "Au"]
+polyatomic_cation = ["NH4", "H3O", "Hg2", "NO2"]
+monoatomic_anion = ["H", "F", "Cl", "Br", "I", "O", "S", "N", "P"]
+polyatomic_anion = ["OH", "CN", "O2", "NO2", "NO3", "CO3", "HCO3", "SO3", "SO4", "HSO4", "PO4", "HPO4", "H2PO4", "ClO", "ClO2", "ClO3", "ClO4", "MnO4", "CrO4", "Cr2O7", "Cr2O4", "CH3COO", "NH2", "SCN", "S2O3"]
+
+
+cation_symbol = input("Please enter the cation's symbol: ")
+
+if cation_symbol not in monoatomic_cation and cation_symbol not in polyatomic_cation:
+  print("The cation is not found in the common cation list.")
+
+else:
+  cation_charge = input("Please enter the cation's charge (only nummeric): ")
+  try:
+    int(cation_charge)  
+    
+    if cation_charge == "0":
+      print("Cation's charge could not be zero.")
+  
+    else:
+      anion_symbol = input("Please enter the anion's symbol: ")
+
+      if anion_symbol not in monoatomic_anion and anion_symbol not in polyatomic_anion:
+        print("The anion is not found in the common anion list.")
+  
+      else:
+        anion_charge = input("please eneter the anion's charge (only nummeric): ")
+        
+        try:
+          int(anion_charge)
+        
+          if anion_charge == "0":
+            print("Anion's charge could not be zero.")
+      
+          else:
+            def find_gcd(a, b):
+              while b:
+                a, b = b, a % b
+              return a         
+            cation_charge_int = int(cation_charge)
+            anion_charge_int = int(anion_charge)
+            gcd = find_gcd(cation_charge_int, anion_charge_int)
+              
+            if gcd > 1:
+              cation_charge_int //= gcd
+              anion_charge_int //= gcd
+              
+            cation_charge = str(cation_charge_int)
+            anion_charge = str(anion_charge_int)
+                       
+            if cation_charge == anion_charge:
+              print(f"The formula is: {cation_symbol}{anion_symbol}")
+
+            else:
+              if cation_charge == "1" and anion_charge != "1":
+                if cation_symbol in monoatomic_cation:
+                  print(f"The formula is: {cation_symbol}{anion_charge}{anion_symbol}") 
+                else:
+                  print(f"The formula is: ({cation_symbol}){anion_charge}{anion_symbol}")
+  
+              elif cation_charge != "1" and anion_charge == "1":
+                if anion_symbol in monoatomic_anion:
+                  print(f"The formula is: {cation_symbol}{anion_symbol}{cation_charge}") 
+                else:
+                  print(f"The formula is: {cation_symbol}({anion_symbol}){cation_charge}")
+          
+              else:
+                           
+                if cation_symbol in monoatomic_cation and anion_symbol in monoatomic_anion:
+                  print(f"The formula is: {cation_symbol}{anion_charge}{anion_symbol}{cation_charge}")
+                elif cation_symbol in polyatomic_cation and anion_symbol in monoatomic_anion:
+                  print(f"The formula is: ({cation_symbol}){anion_charge}{anion_symbol}{cation_charge}")
+                elif cation_symbol in monoatomic_cation and anion_symbol in polyatomic_anion:
+                  print(f"The formula is: {cation_symbol}{anion_charge}({anion_symbol}){cation_charge}")
+                else:
+                  print(f"The formula is: ({cation_symbol}){anion_charge}({anion_symbol}){cation_charge}")
+      
+      
+        except ValueError:
+          print("Please enter valid anion's charge!")
+      
+  
+  except ValueError:
+    print("Please enter valid cation's charge!")
+  
+  

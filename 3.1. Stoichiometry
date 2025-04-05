@@ -1,0 +1,386 @@
+#3.1. Write a script to take information about the solution and calculate the amount of needed ingredient.
+
+solute_type = input("What's the solute type: (a) Solid (b) Liquid (c) Solution ? ")
+concentration_type = input("What's the concentration type of your desired solution, i.e. (a) Molarity (b) Molality (c) Mass Percent (d) ppm (e) ppb (f) Volume Percent (g) Mole Fraction (h) Mole Percent? ")
+
+if concentration_type.lower() == "a" or concentration_type.lower() == "(a)" or concentration_type.lower() == "molarity" or concentration_type.lower() == "(a) molarity" or concentration_type.lower() == "a molarity":
+  try:
+    volume = float(input("What's the volume of your desired solution in L? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in molarity? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        try:
+          molecular_weight = float(input("What's the molecuar weight of the solute in g? "))
+          try:
+            purity = float(input("What's the purity of the solute of 100? "))
+            solute_mass = format(concentration_value * volume * molecular_weight * 100 / purity, ".2e")
+            print(f"The solute mass: {solute_mass} g")
+
+          except ValueError:
+            print("Please enter a valid purity!")
+        except ValueError:
+          print("Please enter a valid molecular weight!")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          density = float(input("What's the density of the solute in g/mL? "))
+          try:
+            molecular_weight = float(input("What's the molecuar weight of the solute in g? "))
+            try:
+              purity = float(input("What's the purity of the solute of 100? "))
+              solute_volume = format((concentration_value * volume * molecular_weight * 100) /(density * purity) , ".2e")
+              print(f"The solute volume: {solute_volume} mL")
+
+            except ValueError:
+              print("Please enter a valid purity!")
+          except ValueError:
+            print("Please enter a valid molecular weight!")
+        except ValueError:
+          print("Please enter a valid density!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in molarity? "))
+          solute_volume = format(concentration_value * volume * 1000 / solute_concentration, ".2e")
+          print(f"The concentrated solution volume: {solute_volume} mL")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid volume value!")
+
+
+elif concentration_type.lower() == "b" or concentration_type.lower() == "(b)" or concentration_type.lower() == "molality" or concentration_type.lower() == "(b) molality" or concentration_type.lower() == "b molality":
+  try:
+    solvent_mass = float(input("What's the mass of your solvent in kg? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in molality? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        try:
+          molecular_weight = float(input("What's the molecuar weight of the solute in g? "))
+          try:
+            purity = float(input("What's the purity of the solute of 100? "))
+            solute_mass = format(concentration_value * solvent_mass * molecular_weight * 100 / purity, ".2e")
+            print(f"The solute mass: {solute_mass} g")
+
+          except ValueError:
+            print("Please enter a valid purity!")
+        except ValueError:
+          print("Please enter a valid molecular weight!")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          density = float(input("What's the density of the solute in g/mL? "))
+          try:
+            molecular_weight = float(input("What's the molecuar weight of the solute in g? "))
+            try:
+              purity = float(input("What's the purity of the solute of 100? "))
+              solute_volume = format((concentration_value * solvent_mass * molecular_weight * 100) /(density * purity) , ".2e")
+              print(f"The solute volume: {solute_volume} mL")
+
+            except ValueError:
+              print("Please enter a valid purity!")
+          except ValueError:
+            print("Please enter a valid molecular weight!")
+        except ValueError:
+          print("Please enter a valid density!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in molality? "))
+          solute_mass = format(concentration_value * solvent_mass * 1000 / solute_concentration, ".2e")
+          print(f"The concentrated solution mass: {solute_mass} g")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid volume value!")
+
+
+elif concentration_type.lower() == "c" or concentration_type.lower() == "(c)" or concentration_type.lower() == "mass percent" or concentration_type.lower() == "(c) mass percent" or concentration_type.lower() == "c mass percent":
+  try:
+    mass = float(input("What's the mass of your desired solution in g? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in mass percent? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        solute_mass = format(concentration_value * mass / 100, ".2e")
+        print(f"The solute mass: {solute_mass} g")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          density = float(input("What's the density of the solute in g/mL? "))
+          try:
+            purity = float(input("What's the purity of the solute of 100? "))
+            solute_volume = format((concentration_value * mass * 100) /(density * purity * 100) , ".2e")
+            print(f"The solute volume: {solute_volume} mL")
+
+          except ValueError:
+            print("Please enter a valid purity!")
+        except ValueError:
+          print("Please enter a valid density!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in mass percent? "))
+          solute_mass = format((concentration_value * mass) / (solute_concentration * 100), ".2e")
+          print(f"The concentrated solution volume: {solute_mass} g")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid mass value!")
+
+elif concentration_type.lower() == "d" or concentration_type.lower() == "(d)" or concentration_type.lower() == "ppm" or concentration_type.lower() == "(d) ppm" or concentration_type.lower() == "d ppm":
+  try:
+    mass = float(input("What's the mass of your desired solution in g? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in ppm? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        solute_mass = format(concentration_value * mass / 1000000, ".2e")
+        print(f"The solute mass: {solute_mass} g")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          density = float(input("What's the density of the solute in g/mL? "))
+          try:
+            purity = float(input("What's the purity of the solute of 100? "))
+            solute_volume = format((concentration_value * mass * 100) /(density * purity * 1000000) , ".2e")
+            print(f"The solute volume: {solute_volume} mL")
+
+          except ValueError:
+            print("Please enter a valid purity!")
+        except ValueError:
+          print("Please enter a valid density!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in ppm? "))
+          solute_mass = format((concentration_value * mass) / (solute_concentration * 1000000), ".2e")
+          print(f"The concentrated solution volume: {solute_mass} g")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid mass value!")
+
+elif concentration_type.lower() == "e" or concentration_type.lower() == "(e)" or concentration_type.lower() == "ppb" or concentration_type.lower() == "(e) ppb" or concentration_type.lower() == "e ppb":
+  try:
+    mass = float(input("What's the mass of your desired solution in g? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in ppb? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        solute_mass = format(concentration_value * mass / 1000000000, ".2e")
+        print(f"The solute mass: {solute_mass} g")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          density = float(input("What's the density of the solute in g/mL? "))
+          try:
+            purity = float(input("What's the purity of the solute of 100? "))
+            solute_volume = format((concentration_value * mass * 100) /(density * purity * 1000000000) , ".2e")
+            print(f"The solute volume: {solute_volume} mL")
+
+          except ValueError:
+            print("Please enter a valid purity!")
+        except ValueError:
+          print("Please enter a valid density!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in ppb? "))
+          solute_mass = format((concentration_value * mass) / (solute_concentration * 1000000000), ".2e")
+          print(f"The concentrated solution volume: {solute_mass} g")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid mass value!")
+
+
+elif concentration_type.lower() == "f" or concentration_type.lower() == "(f)" or concentration_type.lower() == "volume percent" or concentration_type.lower() == "(f) volume percent" or concentration_type.lower() == "f volume percent":
+  try:
+    volume = float(input("What's the volume of your desired solution in L? "))
+    try:
+      concentration_value = float(input("What's the absolute concentration value of your desired solution in volume percent? "))
+      if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+        print(f"You cannot make a solution with volume percent concentration type from a solid solute. Please try another concentration type.")
+
+      elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+        try:
+          purity = float(input("What's the purity of the solute of 100? "))
+          solute_volume = format((concentration_value * volume * 100 * 1000) /(purity * 100) , ".2e")
+          print(f"The solute volume: {solute_volume} mL")
+
+        except ValueError:
+          print("Please enter a valid purity!")
+
+      elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+        try:
+          solute_concentration = float(input("What's the concentration of the concentrated solution in volume percent? "))
+          solute_volume = format((concentration_value * volume * 1000) / (solute_concentration * 100), ".2e")
+          print(f"The concentrated solution volume: {solute_volume} mL")
+
+        except ValueError:
+          print("Please enter a valid concentration value!")
+
+      else:
+        print("Please enter a correct solute type!")
+
+    except ValueError:
+      print("Please enter a valid concentration value!")
+
+  except ValueError:
+    print("Please enter a valid volume value!")
+
+
+elif concentration_type.lower() == "g" or concentration_type.lower() == "(g)" or concentration_type.lower() == "mole fraction" or concentration_type.lower() == "(g) mole fraction" or concentration_type.lower() == "g mole fraction":
+  try:
+    concentration_value = float(input("What's the mole fraction of A component (0-1)? "))
+    try:
+      component_A_MW = float(input("What's the molecular weight of A component in g/mol? "))
+      try:
+        component_B_MW = float(input("What's the molecular weight of B component in g/mol? "))
+        if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+          try:
+            component_A_mass = float(input("What's the mass of A component in g? "))
+            try:
+              purity = float(input("What's the purity of the B component of 100? "))
+              component_A_mol = component_A_mass / component_A_MW
+              component_AB_mol = component_A_mol / concentration_value
+              component_B_mol = component_AB_mol - component_A_mol
+              component_B_mass = format(component_B_mol *  component_B_MW * 100 / purity, ".2e")
+              print(f"The mass of B component: {component_B_mass} g")
+
+            except ValueError:
+              print("Please enter a valid purity!")
+          except ValueError:
+            print("Please enter a valid mass value!")
+
+        elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+          try:
+            component_A_mass = float(input("What's the mass of A component in g? "))
+            try:
+              component_B_density = float(input("What's the density of the A component in g/mL? "))
+              try:
+                purity = float(input("What's the purity of the B component of 100? "))
+                component_A_mol = component_A_mass / component_A_MW
+                component_AB_mol = component_A_mol / concentration_value
+                component_B_mol = component_AB_mol - component_A_mol
+                component_B_mass = component_B_mol *  component_B_MW
+                component_B_volume = format((component_B_mass * 100) / (component_B_density * purity), ".2e")
+                print(f"The volume of B component: {component_B_volume} mL")
+
+              except ValueError:
+                print("Please enter a valid purity!")
+            except ValueError:
+              print("Please enter a valid density!")
+          except ValueError:
+            print("Please enter a valid mass value!")
+
+        elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+          print("You cannot make a solution with mole fraction concentration type from a concentrated solution. Please try another concentration type.")
+
+        else:
+          print("Please enter a correct solute type!")
+
+      except ValueError:
+        print("Please enter a valid molecular weight!")
+    except ValueError:
+      print("Please enter a valid molecular weight!")
+  except ValueError:
+    print("Please enter a valid concentration value!")
+
+
+elif concentration_type.lower() == "h" or concentration_type.lower() == "(h)" or concentration_type.lower() == "mole percent" or concentration_type.lower() == "(h) mole percent" or concentration_type.lower() == "h mole percent":
+  try:
+    concentration_value = float(input("What's the mole percent of A component? "))
+    try:
+      component_A_MW = float(input("What's the molecular weight of A component in g/mol? "))
+      try:
+        component_B_MW = float(input("What's the molecular weight of B component in g/mol? "))
+        if solute_type.lower() == "a" or solute_type.lower() == "(a)" or solute_type.lower() == "solid" or solute_type.lower() == "(a) solid" or solute_type.lower() == "a solid":
+          try:
+            component_A_mass = float(input("What's the mass of A component in g? "))
+            try:
+              purity = float(input("What's the purity of the B component of 100? "))
+              component_A_mol = component_A_mass / component_A_MW
+              component_AB_mol = component_A_mol * 100 / concentration_value
+              component_B_mol = component_AB_mol - component_A_mol
+              component_B_mass = format(component_B_mol *  component_B_MW * 100 / purity, ".2e")
+              print(f"The mass of B component: {component_B_mass} g")
+
+            except ValueError:
+              print("Please enter a valid purity!")
+          except ValueError:
+            print("Please enter a valid mass value!")
+
+        elif solute_type.lower() == "b" or solute_type.lower() == "(b)" or solute_type.lower() == "liquid" or solute_type.lower() == "(b) liquid" or solute_type.lower() == "b liquid":
+          try:
+            component_A_mass = float(input("What's the mass of A component in g? "))
+            try:
+              component_B_density = float(input("What's the density of the A component in g/mL? "))
+              try:
+                purity = float(input("What's the purity of the B component of 100? "))
+                component_A_mol = component_A_mass / component_A_MW
+                component_AB_mol = component_A_mol * 100 / concentration_value
+                component_B_mol = component_AB_mol - component_A_mol
+                component_B_mass = component_B_mol *  component_B_MW
+                component_B_volume = format((component_B_mass * 100) / (component_B_density * purity), ".2e")
+                print(f"The volume of B component: {component_B_volume} mL")
+
+              except ValueError:
+                print("Please enter a valid purity!")
+            except ValueError:
+              print("Please enter a valid density!")
+          except ValueError:
+            print("Please enter a valid mass value!")
+
+        elif solute_type.lower() == "c" or solute_type.lower() == "(c)" or solute_type.lower() == "solution" or solute_type.lower() == "(c) solution" or solute_type.lower() == "c solution":
+          print("You cannot make a solution with mole fraction concentration type from a concentrated solution. Please try another concentration type.")
+
+        else:
+          print("Please enter a correct solute type!")
+
+      except ValueError:
+        print("Please enter a valid molecular weight!")
+    except ValueError:
+      print("Please enter a valid molecular weight!")
+  except ValueError:
+    print("Please enter a valid concentration value!")
